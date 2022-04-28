@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 @layer components {
-}
+  /* reset some weird default CSS from reach - ex. whitespace-nowrap */
+  [data-reach-menu-items] {
+    @apply whitespace-normal border-0 bg-transparent p-0 focus:outline-none;
+  }
 
-[data-reach-menu-items] {
-  @apply whitespace-normal border-0 bg-transparent p-0 focus:outline-none;
-}
+  [data-reach-menu-item] {
+    @apply rounded-lg p-2;
+  }
 
-[data-reach-menu-item] {
-  @apply rounded-lg p-2;
-}
-
-[data-reach-menu-item][data-selected] {
-  @apply bg-[#f9f7f1];
+  [data-reach-menu-item][data-selected] {
+    @apply bg-[#f9f7f1];
+  }
 }
