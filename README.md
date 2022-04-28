@@ -1,3 +1,9 @@
+## What is this?
+
+This is my personal playground for trying out new UI/UX ideas using various libraries and composable hooks!
+
+## Project Details
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
