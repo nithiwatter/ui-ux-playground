@@ -13,6 +13,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
+    "@radix-ui/react-navigation-menu": "^0.1.2",
     "@reach/menu-button": "^0.17.0",
     "@reach/popover": "^0.17.0",
     "@react-spring/web": "^9.4.4",
