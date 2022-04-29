@@ -19,7 +19,7 @@ function CohereMenu() {
 
         return (
           <div ref={popoverRef} {...bind()} className="w-fit">
-            <MenuButton className="rounded-lg bg-[#fcfbf8] px-4 py-2 font-semibold text-[#625a41] focus:outline-none">
+            <MenuButton className="rounded-lg bg-[#fcfbf8] px-4 py-2 font-semibold text-[#625a41] focus-visible:outline-none">
               <div ref={buttonRef}>
                 Platform
                 {isExpanded ? (

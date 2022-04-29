@@ -4,8 +4,9 @@
 
 @layer components {
   /* reset some weird default CSS from reach - ex. whitespace-nowrap */
+  /* need to hide focus as the dispatchEvent behaves strangely and adds focus-visible until you click the button */
   [data-reach-menu-items] {
-    @apply whitespace-normal border-0 bg-transparent p-0;
+    @apply whitespace-normal border-0 bg-transparent p-0 focus-visible:outline-none;
   }
 
   [data-reach-menu-item] {
