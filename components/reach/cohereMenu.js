@@ -43,8 +43,6 @@ function CohereMenu() {
                       you already have
                     </p>
                   </MenuItem>
-                </MenuItems>
-                <MenuItems>
                   <MenuItem
                     onSelect={() => {
                       console.log('Option 2');
@@ -55,8 +53,6 @@ function CohereMenu() {
                       Boost handle times by eliminating unnecessary transfers
                     </p>
                   </MenuItem>
-                </MenuItems>
-                <MenuItems>
                   <MenuItem
                     onSelect={() => {
                       console.log('Option 3');
