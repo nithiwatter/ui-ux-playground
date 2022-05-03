@@ -16,6 +16,12 @@ function LineHeight() {
           Hello
         </span>
       </div>
+      <div className="mt-5 bg-slate-500">
+        <span className="bg-red-500">abc</span>
+        <span className="align-bottom text-[40px] leading-[40px]">
+          Hello World
+        </span>
+      </div>
     </>
   );
 }
