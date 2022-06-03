@@ -5,6 +5,6 @@ const fetchTodoDetail = ({ id }) =>
     res.json()
   );
 
-const todoDetail = new Endpoint(fetchTodoDetail);
+const todoDetail = new Endpoint(fetchTodoDetail, { dataExpiryLength: 0 });
 
 export { todoDetail };

@@ -10,4 +10,20 @@ function useMounted() {
   return { mounted };
 }
 
-export { useMounted };
+function useRerender() {
+  const [s, setS] = React.useState(0);
+
+  const onClick = () => setS(s + 1);
+
+  return { onClick };
+}
+
+function useSwitch() {
+  const [on, setOn] = React.useState(false);
+
+  const onClick = () => setOn(!on);
+
+  return { onClick };
+}
+
+export { useMounted, useRerender, useSwitch };
