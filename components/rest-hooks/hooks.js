@@ -23,7 +23,7 @@ function useSwitch() {
 
   const onClick = () => setOn(!on);
 
-  return { onClick };
+  return { on, onClick };
 }
 
 export { useMounted, useRerender, useSwitch };
