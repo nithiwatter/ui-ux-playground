@@ -1,4 +1,4 @@
-import { NetworkManager } from '@rest-hooks/core';
+import { Manager, NetworkManager } from '@rest-hooks/core';
 
 class ModifiedNetworkManager extends NetworkManager {
   getMiddleware() {
@@ -8,4 +8,18 @@ class ModifiedNetworkManager extends NetworkManager {
   }
 }
 
-export { ModifiedNetworkManager };
+class ModifiedMiddleManager {
+  getMiddleware() {
+    return ({ getState, controller }) =>
+      (next) =>
+      async (action) => {
+        // console.log(getState());
+        console.log(action.type);
+        next(action);
+      };
+  }
+
+  cleanup() {}
+}
+
+export { ModifiedMiddleManager, ModifiedNetworkManager };

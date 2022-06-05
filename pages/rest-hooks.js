@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { CacheProvider, useSuspense } from 'rest-hooks';
+import { CacheProvider, DevToolsManager, useSuspense } from 'rest-hooks';
 
 import {
   useMounted,
@@ -7,9 +7,20 @@ import {
   useSwitch,
 } from '../components/rest-hooks/hooks';
 import { todoDetail, todoList } from '../components/rest-hooks/endpoints';
-import { ModifiedNetworkManager } from '../components/rest-hooks/managers';
+import {
+  ModifiedMiddleManager,
+  ModifiedNetworkManager,
+} from '../components/rest-hooks/managers';
 
-const managers = [new ModifiedNetworkManager()];
+const modifiedNetworkManger = new ModifiedNetworkManager();
+const managers = [
+  new DevToolsManager(
+    undefined,
+    modifiedNetworkManger.skipLogging.bind(modifiedNetworkManger)
+  ),
+  modifiedNetworkManger,
+  // new ModifiedMiddleManager(),
+];
 
 let global;
 let globals;
@@ -18,8 +29,8 @@ function API() {
   const todos = useSuspense(todoList);
   const { onClick } = useRerender();
   const { on, onClick: onClickSwitch } = useSwitch();
-  console.log('before todos', globals === todos);
-  globals = todos;
+  // console.log('before todos', globals === todos);
+  // globals = todos;
 
   return (
     <div>
@@ -37,8 +48,9 @@ function API() {
 function API2() {
   console.log('render child');
   const todo = useSuspense(todoDetail, { id: 1 });
-  console.log('before', global === todo);
-  global = todo;
+  console.log(todo.pk());
+  // console.log('before', global === todo);
+  // global = todo;
 
   return <div>API2</div>;
 }
