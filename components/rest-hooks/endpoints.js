@@ -1,9 +1,9 @@
-import { Endpoint } from "rest-hooks";
-import { Entity, schema } from "@rest-hooks/endpoint";
+import { Endpoint } from 'rest-hooks';
+import { Entity, schema } from '@rest-hooks/endpoint';
 
 class TodoEntity extends Entity {
-  id = "";
-  title = "Placeholder";
+  id = '';
+  title = 'Placeholder';
   completed = false;
 
   pk() {
@@ -17,7 +17,7 @@ const fetchTodoDetail = ({ id }) =>
   );
 const fetchTodoDelete = ({ id }) =>
   fetch(`https://jsonplaceholder.typicode.com/todos/${id}`, {
-    method: "DELETE",
+    method: 'DELETE',
   }).then(() => ({ id }));
 const fetchTodoList = () =>
   fetch(`https://jsonplaceholder.typicode.com/todos`).then((res) => res.json());
