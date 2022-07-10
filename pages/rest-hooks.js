@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { CacheProvider, useController, useSuspense } from "rest-hooks";
 
-import { useMounted } from "../components/rest-hooks/hooks";
+import { useMounted, useSwitch } from "../components/rest-hooks/hooks";
 import {
   todoDelete,
   todoDetail,
@@ -19,12 +19,13 @@ function Feature() {
 }
 
 function API() {
+  const { on, onClick } = useSwitch(true);
   const { fetch } = useController();
   const todos = useSuspense(todoList);
 
   return (
     <>
-      <Feature />
+      <Suspense fallback={<div>deleting...</div>}>{on && <Feature />}</Suspense>
       <div>
         {todos.map((todo) => {
           return (
@@ -37,8 +38,12 @@ function API() {
               </h4>
               <button
                 className="block rounded-md bg-blue-600 p-2 text-white"
-                onClick={() => {
-                  fetch(todoDelete, { id: todo.pk() });
+                onClick={async () => {
+                  await fetch(todoDelete, { id: todo.pk() });
+
+                  if (todo.pk() === 1) {
+                    onClick();
+                  }
                 }}
               >
                 Remove this todo

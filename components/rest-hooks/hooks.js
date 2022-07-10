@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 function useMounted() {
   const [mounted, setMounted] = React.useState(false);
@@ -18,8 +18,8 @@ function useRerender() {
   return { onClick };
 }
 
-function useSwitch() {
-  const [on, setOn] = React.useState(false);
+function useSwitch(defaultOn) {
+  const [on, setOn] = React.useState(!!defaultOn);
 
   const onClick = () => setOn(!on);
 
