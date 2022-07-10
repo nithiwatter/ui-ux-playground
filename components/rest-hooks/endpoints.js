@@ -3,7 +3,7 @@ import { Entity, schema } from "@rest-hooks/endpoint";
 
 class TodoEntity extends Entity {
   id = "";
-  title = "hello";
+  title = "Placeholder";
   completed = false;
 
   pk() {
