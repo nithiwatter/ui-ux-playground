@@ -1,12 +1,12 @@
-import React, { Suspense } from 'react';
-import { CacheProvider, useController, useSuspense } from 'rest-hooks';
+import React, { Suspense } from "react";
+import { CacheProvider, useController, useSuspense } from "rest-hooks";
 
-import { useMounted, useSwitch } from '../components/rest-hooks/hooks';
+import { useMounted, useSwitch } from "../components/rest-hooks/hooks";
 import {
   todoDelete,
   todoDetail,
   todoList,
-} from '../components/rest-hooks/endpoints';
+} from "../components/rest-hooks/endpoints";
 
 function Feature() {
   const featuredTodo = useSuspense(todoDetail, { id: 1 });
